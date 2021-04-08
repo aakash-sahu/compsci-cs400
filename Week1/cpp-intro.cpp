@@ -20,6 +20,7 @@ int main() {
      double volume = c.getVolume();
      std::cout <<"Volume= " << volume <<std::endl;
 
+     // << is called streaming operator and sends the operand on its right to the stream on its left.
      std::cout << "Surface area = " << c.getSurfaceArea() << std::endl;
 
     return 0;
