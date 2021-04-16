@@ -40,7 +40,58 @@ int main() {
     c2->setLength(10);
 
     delete c2; // delete the data at memory at which c1 is there so error.
-    delete c1; // run gives error that double free memory
+    // delete c1; // run gives error that double free memory
+
+    // puzzle with reference variable
+    int *x = new int;
+    int &y = *x;    //y is a reference variable. It alias another memory and name a piece of memory. => this heap memory address is called y.
+    y =4;
+    std::cout << "Reference variable: "<< std::endl;
+    std::cout << &x << std::endl;   //stack address = large
+    std::cout << x << std::endl;    //ptr value at heap address = low value
+    std::cout << *x << std::endl;   // value = 4
+
+    std::cout << &y << std::endl;   // same as heap address
+    std::cout << y << std::endl;    // value =4
+    // std::cout << *y << std::endl;    //gives error as non-pointer => error = indirection requires pointer operand
+    delete x;
+    x = nullptr;
+
+    //puzzle 3
+    int *p, *q;
+    p = new int;
+    q = p;
+    *q = 8;
+     std::cout << "Puzzle 3: "<< std::endl;
+    std::cout << *p << std::endl;   //should print 8
+
+    q = new int;    //q now points to a new memory
+    *q = 9;
+    std::cout << *p << std::endl;     //should print 8
+    std::cout << *q << std::endl;     //should print 9
+
+    //puzzle 4 -- use of array and for loop
+    std::cout << "Array and for loop: "<< std::endl;
+    int *z;
+    int size =3;
+    z = new int[size];  //x == new integer array of size 3 => allocating a sequence of memory of size 3 total in heap
+
+    for (int i =0; i < size; i++) {
+        z[i] = i +3;
+        std::cout << z[i] << std::endl;
+    }
+    std::cout << *z << std::endl;   //only prints the first value as ptr to first memory location
     
+    delete[] z;     //delete array of memory.
+    std::cout << *z << std::endl;
+
+    //quiz question
+    int *v = new int;
+    *v =0;
+    int &b = *v;    
+     std::cout << "quiz: " << *v << b << std::endl;
+    b++;
+    std::cout << "quiz: " << *v << b << std::endl;
+
     return 0;
 }
