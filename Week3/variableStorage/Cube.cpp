@@ -5,6 +5,11 @@
 
 namespace uiuc {
 
+  Cube::Cube() {
+    length_ = 1;
+    std::cout << "Created $1 (default)" << std::endl;
+  }
+
   Cube::Cube(double length) {
     length_ = length;
     std::cout << "Custom constructor invoked!" << std::endl;
@@ -24,6 +29,11 @@ namespace uiuc {
     length_ = obj.length_;
     std::cout << "Assignment constructor invoked!" << std::endl;
     return *this;     // return dereferenced valued of class obj
+  }
+
+  //destructor
+  Cube::~Cube() {
+    std::cout << "Destroyed $: "<< getVolume() << std::endl;
   }
 
   // adding const here as done by instructor and in the next function makes the compiler error go away. Why?
