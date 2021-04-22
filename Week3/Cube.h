@@ -12,6 +12,11 @@ namespace uiuc {
       //copy constructor
       Cube(const Cube & obj);
 
+      //copy assignment operator
+      // default provided will copy the contents for all member variables
+      //4 properties - public member, fun name= operator=, return value of reference of class' type, and exactly one arg - const reference of class' type
+      Cube & operator=(const Cube & obj);
+
       double getVolume();
       double getSurfaceArea();
       void setLength(double length);

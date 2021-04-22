@@ -26,6 +26,13 @@ namespace uiuc {
     std::cout << "Copy constructor invoked!" << std::endl;
   }
 
+  //copy assignment operator
+  Cube & Cube::operator=(const Cube & obj) {
+    length_ = obj.length_;
+    std::cout << "Assignment constructor invoked!" << std::endl;
+    return *this;     // return dereferenced valued of class obj
+  }
+
   double Cube::getVolume() {
     return length_ * length_ * length_;
   }

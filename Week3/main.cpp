@@ -42,7 +42,11 @@ int main() {
 
   Cube myCube; //default const
 
-  myCube = c; //copy const wont' be called as copy cons called only when object is const for first time.
+  myCube = c; //copy const wont' be called as copy cons called only when object is const for first time (creates a new object).
+
+  //assignment copy constructor will be invoked above
+
+
 
   return 0;
 }
